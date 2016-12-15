@@ -38,9 +38,9 @@ namespace FluentBuilderDemo
             FluentBuilder.Vehicle secondCar = secondBuilder
                 .BuildType("Sports Car")
                 .BuildFrame("unibody")
-                .BuildEngine(3, 500)
+                .BuildEngine(16, 9000)
                 .BuildWheels(4)
-                .BuildDoors(3)
+                .BuildDoors(2)
                 .Construct();
             Console.WriteLine(secondCar.ToString());
 
