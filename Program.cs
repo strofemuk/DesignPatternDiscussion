@@ -34,6 +34,11 @@ namespace FluentBuilderDemo
             Builder.Vehicle firstCar = shop.Construct(builder);
             Console.WriteLine(firstCar.ToString());
 
+            //let's build another one....
+            Builder.IVehicleBuilder motorcycleBuilder = new Builder.MotorcycleBuilder();
+            Builder.Vehicle motorcycle3 = shop.Construct(motorcycleBuilder);
+            Console.WriteLine(motorcycle3.ToString());
+
             //object constructing using a fluent api implentation.  The director and the individual builders are replaced with a "fluent interface".
             FluentBuilder.IVehicleBuilder secondBuilder = new FluentBuilder.Vehicle.VehicleBuilder();
             FluentBuilder.Vehicle secondCar = secondBuilder
@@ -44,6 +49,15 @@ namespace FluentBuilderDemo
                 .BuildDoors(2)
                 .Construct();
             Console.WriteLine(secondCar.ToString());
+
+            FluentBuilder.Vehicle motorcycle4 = secondBuilder
+                .BuildType("Motorcycle")
+                .BuildFrame("motorcycle frame")
+                .BuildEngine(4, 250)
+                .BuildWheels(2)
+                .BuildDoors(0)
+                .Construct();
+            Console.WriteLine(motorcycle4.ToString());
 
             Console.ReadKey();
 
