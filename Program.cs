@@ -10,11 +10,11 @@ namespace FluentBuilderDemo
     {
         static void Main(string[] args)
         {
-            //No pattern -- overriding constructors.
+            //object construction using no pattern -- overriding constructors.
             Vehicle motorcycle1 = new Vehicle("Motorcycle", "Motorcycle frame", 2, 500, 2,0);
             Console.WriteLine(motorcycle1.ToString());
 
-            //No pattern -- using properties.
+            //object construction using no pattern -- using properties.
             Vehicle motorcycle2 = new Vehicle
             {
                 Type = "Motorcyle",
@@ -27,13 +27,14 @@ namespace FluentBuilderDemo
 
             Console.WriteLine(motorcycle2.ToString());
 
-            //classic builder pattern.  The director (shop) is used to conduct the building operation (builder) to produce an object (firstCar)
+            //object construction using the classic builder pattern.  
+            //The director (shop) is used to conduct the building operation (builder) to produce an object (firstCar)
             Builder.IVehicleBuilder builder = new Builder.CarBuilder();
-            Builder.IBuildDirector shop = new Builder.BuildDirector(builder);
-            Builder.Vehicle firstCar = shop.Construct();
+            Builder.IBuildDirector shop = new Builder.BuildDirector();
+            Builder.Vehicle firstCar = shop.Construct(builder);
             Console.WriteLine(firstCar.ToString());
 
-            //Fluent implentation.  The director is replaced with a "fluent interface"
+            //object constructing using a fluent api implentation.  The director and the individual builders are replaced with a "fluent interface".
             FluentBuilder.IVehicleBuilder secondBuilder = new FluentBuilder.Vehicle.VehicleBuilder();
             FluentBuilder.Vehicle secondCar = secondBuilder
                 .BuildType("Sports Car")

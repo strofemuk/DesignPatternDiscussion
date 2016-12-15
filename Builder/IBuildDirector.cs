@@ -3,6 +3,6 @@ namespace FluentBuilderDemo.Builder
 {
     public interface IBuildDirector
     {
-        Vehicle Construct();
+        Vehicle Construct(IVehicleBuilder builder);
     }
 }

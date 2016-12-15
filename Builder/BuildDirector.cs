@@ -9,21 +9,20 @@ namespace FluentBuilderDemo.Builder
     //The director of has the responsibility of conductiong the build operations.
     public class BuildDirector : IBuildDirector
     {
-        public BuildDirector(IVehicleBuilder builder)
+        public BuildDirector()
         {
-            Builder = builder;
+
         }
 
-        public IVehicleBuilder Builder { get; private set; }
 
-        public Vehicle Construct()
+        public Vehicle Construct(IVehicleBuilder builder)
         {
-            Builder.BuildFrame();
-            Builder.BuildEngine();
-            Builder.BuildWheels();
-            Builder.BuildDoors();
+            builder.BuildFrame();
+            builder.BuildEngine();
+            builder.BuildWheels();
+            builder.BuildDoors();
 
-            return Builder.Vehicle;
+            return builder.Vehicle;
         }
     }
 }
