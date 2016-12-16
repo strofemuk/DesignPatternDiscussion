@@ -49,8 +49,7 @@
     <Compile Include="Builder\IVehicleBuilder.cs" />
     <Compile Include="Builder\MotorcycleBuilder.cs" />
     <Compile Include="Door.cs" />
-    <Compile Include="FluentBuilder\AVehicleBuilder.cs" />
-    <Compile Include="FluentBuilder\CarBuilder.cs" />
+    <Compile Include="FluentBuilder\VehicleBuilder.cs" />
     <Compile Include="Builder\Vehicle.cs" />
     <Compile Include="FluentBuilder\IVehicleBuilder.cs" />
     <Compile Include="FluentBuilder\Vehicle.cs" />
