@@ -11,40 +11,35 @@ namespace FluentBuilderDemo.FluentBuilder
         //The AVehicleBuilder class is insde the Vehicle to hide Vehicle's constructor.  
         public class VehicleBuilder : IVehicleBuilder
         {
-            protected Vehicle Vehicle { get; set; }
+            public Vehicle Vehicle { get; protected set; }
 
-            public VehicleBuilder()
+            public IVehicleBuilder CreateVehicle(string type)
             {
-                Vehicle = new Vehicle();
-                Vehicle.Door = new Door { Count = 0 };
-            }
-
-            public IVehicleBuilder BuildType(string type)
-            {
+                Vehicle = new FluentBuilder.Vehicle();
                 Vehicle.Type = type;
                 return this;
             }
 
-            public IVehicleBuilder BuildFrame(string frame)
+            public IVehicleBuilder OnFrame(string frame)
             {
                 Vehicle.Frame = frame;
                 return this;
             }
 
-            public IVehicleBuilder BuildEngine(int numberOfCylinders, int engineSizeInCC)
+            public IVehicleBuilder WithEngine(int numberOfCylinders, int engineSizeInCC)
             {
                 Vehicle.NumberOfCylinders = numberOfCylinders;
                 Vehicle.EngineSizeInCC = engineSizeInCC;
                 return this;
             }
 
-            public IVehicleBuilder BuildWheels(int numberOfWheels)
+            public IVehicleBuilder WithWheels(int numberOfWheels)
             {
                 Vehicle.NumberOfWheels = numberOfWheels;
                 return this;
             }
 
-            public IVehicleBuilder BuildDoors(int numberOfDoors)
+            public IVehicleBuilder WithDoors(int numberOfDoors)
             {
                 Vehicle.Door = new Door { Count = numberOfDoors };
                 return this;
@@ -54,6 +49,8 @@ namespace FluentBuilderDemo.FluentBuilder
             {
                 return Vehicle;
             }
+
+
         }
     }
 }

@@ -3,11 +3,12 @@ namespace FluentBuilderDemo.FluentBuilder
 {
     public interface IVehicleBuilder
     {
-        IVehicleBuilder BuildType(string type);
-        IVehicleBuilder BuildDoors(int numberOfDoors);
-        IVehicleBuilder BuildEngine(int numberOfCylinders, int engineSizeInCC);
-        IVehicleBuilder BuildFrame(string frame);
-        IVehicleBuilder BuildWheels(int numberOfWheels);
+        IVehicleBuilder CreateVehicle(string type);
+        IVehicleBuilder WithDoors(int numberOfDoors);
+        IVehicleBuilder WithEngine(int numberOfCylinders, int engineSizeInCC);
+        IVehicleBuilder OnFrame(string frame);
+        IVehicleBuilder WithWheels(int numberOfWheels);
         Vehicle Construct();
+        FluentBuilder.Vehicle Vehicle { get; }
     }
 }

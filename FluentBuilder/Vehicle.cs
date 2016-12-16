@@ -32,5 +32,17 @@ namespace FluentBuilderDemo.FluentBuilder
 
             return toString.ToString();
         }
+        public static implicit operator Vehicle(VehicleBuilder builder)
+        {
+            return new FluentBuilder.Vehicle
+            {
+                Type = builder.Vehicle.Type,
+                Frame = builder.Vehicle.Frame,
+                EngineSizeInCC = builder.Vehicle.EngineSizeInCC,
+                NumberOfCylinders = builder.Vehicle.NumberOfCylinders,
+                NumberOfWheels = builder.Vehicle.NumberOfWheels,
+                Door = builder.Vehicle.Door
+            };
+        }
     }
 }

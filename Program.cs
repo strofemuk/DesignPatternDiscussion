@@ -42,21 +42,21 @@ namespace FluentBuilderDemo
             //object constructing using a fluent api implentation.  The director and the individual builders are replaced with a "fluent interface".
             FluentBuilder.IVehicleBuilder secondBuilder = new FluentBuilder.Vehicle.VehicleBuilder();
             FluentBuilder.Vehicle secondCar = secondBuilder
-                .BuildType("Sports Car")
-                .BuildFrame("unibody")
-                .BuildEngine(16, 9000)
-                .BuildWheels(4)
-                .BuildDoors(2)
+                .CreateVehicle("Sports Car")
+                .OnFrame("unibody")
+                .WithEngine(16, 9000)
+                .WithWheels(4)
+                .WithDoors(2)
                 .Construct();
             Console.WriteLine(secondCar.ToString());
 
-            FluentBuilder.Vehicle motorcycle4 = secondBuilder
-                .BuildType("Motorcycle")
-                .BuildFrame("motorcycle frame")
-                .BuildEngine(4, 250)
-                .BuildWheels(2)
-                .BuildDoors(0)
-                .Construct();
+            //using an implicit operator conversion...
+            FluentBuilder.Vehicle motorcycle4 = (FluentBuilder.Vehicle.VehicleBuilder)secondBuilder
+                .CreateVehicle("Motorcycle")
+                .OnFrame("motorcycle frame")
+                .WithEngine(4, 250)
+                .WithWheels(2)
+                .WithDoors(0)                ;
             Console.WriteLine(motorcycle4.ToString());
 
             Console.ReadKey();
