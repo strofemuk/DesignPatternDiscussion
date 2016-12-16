@@ -9,7 +9,7 @@ namespace FluentBuilderDemo.FluentBuilder
     /// <summary>
     /// A simple entity class to define a vehicle.
     /// </summary>
-    public partial class Vehicle
+    public class Vehicle
     {
         private Vehicle() { }
 
@@ -36,12 +36,12 @@ namespace FluentBuilderDemo.FluentBuilder
         {
             return new FluentBuilder.Vehicle
             {
-                Type = builder.Vehicle.Type,
-                Frame = builder.Vehicle.Frame,
-                EngineSizeInCC = builder.Vehicle.EngineSizeInCC,
-                NumberOfCylinders = builder.Vehicle.NumberOfCylinders,
-                NumberOfWheels = builder.Vehicle.NumberOfWheels,
-                Door = builder.Vehicle.Door
+                Type = builder.Type,
+                Frame = builder.Frame,
+                EngineSizeInCC = builder.EngineSize,
+                NumberOfCylinders = builder.CylinderCount,
+                NumberOfWheels = builder.WheelCount,
+                Door = new Door{ Count = builder.DoorCount}
             };
         }
     }

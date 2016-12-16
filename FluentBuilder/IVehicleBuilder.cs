@@ -9,6 +9,5 @@ namespace FluentBuilderDemo.FluentBuilder
         IVehicleBuilder OnFrame(string frame);
         IVehicleBuilder WithWheels(int numberOfWheels);
         Vehicle Construct();
-        FluentBuilder.Vehicle Vehicle { get; }
     }
 }

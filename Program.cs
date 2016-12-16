@@ -40,7 +40,7 @@ namespace FluentBuilderDemo
             Console.WriteLine(motorcycle3.ToString());
 
             //object constructing using a fluent api implentation.  The director and the individual builders are replaced with a "fluent interface".
-            FluentBuilder.IVehicleBuilder secondBuilder = new FluentBuilder.Vehicle.VehicleBuilder();
+            FluentBuilder.IVehicleBuilder secondBuilder = new FluentBuilder.VehicleBuilder();
             FluentBuilder.Vehicle secondCar = secondBuilder
                 .CreateVehicle("Sports Car")
                 .OnFrame("unibody")
@@ -51,7 +51,7 @@ namespace FluentBuilderDemo
             Console.WriteLine(secondCar.ToString());
 
             //using an implicit operator conversion...
-            FluentBuilder.Vehicle motorcycle4 = (FluentBuilder.Vehicle.VehicleBuilder)secondBuilder
+            FluentBuilder.Vehicle motorcycle4 = (FluentBuilder.VehicleBuilder)secondBuilder
                 .CreateVehicle("Motorcycle")
                 .OnFrame("motorcycle frame")
                 .WithEngine(4, 250)

@@ -6,51 +6,52 @@ using System.Threading.Tasks;
 
 namespace FluentBuilderDemo.FluentBuilder
 {
-    public partial class Vehicle
+    public class VehicleBuilder : IVehicleBuilder
     {
-        //The AVehicleBuilder class is insde the Vehicle to hide Vehicle's constructor.  
-        public class VehicleBuilder : IVehicleBuilder
+        public string Type { get; private set; }
+        public string Frame { get; private set; }
+        public int CylinderCount { get; private set; }
+        public int EngineSize { get; private set; }
+        public int WheelCount { get; private set; }
+        public int DoorCount { get; private set; }
+
+        public IVehicleBuilder CreateVehicle(string type)
         {
-            public Vehicle Vehicle { get; protected set; }
-
-            public IVehicleBuilder CreateVehicle(string type)
-            {
-                Vehicle = new FluentBuilder.Vehicle();
-                Vehicle.Type = type;
-                return this;
-            }
-
-            public IVehicleBuilder OnFrame(string frame)
-            {
-                Vehicle.Frame = frame;
-                return this;
-            }
-
-            public IVehicleBuilder WithEngine(int numberOfCylinders, int engineSizeInCC)
-            {
-                Vehicle.NumberOfCylinders = numberOfCylinders;
-                Vehicle.EngineSizeInCC = engineSizeInCC;
-                return this;
-            }
-
-            public IVehicleBuilder WithWheels(int numberOfWheels)
-            {
-                Vehicle.NumberOfWheels = numberOfWheels;
-                return this;
-            }
-
-            public IVehicleBuilder WithDoors(int numberOfDoors)
-            {
-                Vehicle.Door = new Door { Count = numberOfDoors };
-                return this;
-            }
-
-            public Vehicle Construct()
-            {
-                return Vehicle;
-            }
-
-
+            Type = type;
+            return this;
         }
+
+        public IVehicleBuilder OnFrame(string frame)
+        {
+            Frame = frame;
+            return this;
+        }
+
+        public IVehicleBuilder WithEngine(int numberOfCylinders, int engineSizeInCC)
+        {
+            CylinderCount = numberOfCylinders;
+            EngineSize = engineSizeInCC;
+            return this;
+        }
+
+        public IVehicleBuilder WithWheels(int numberOfWheels)
+        {
+            WheelCount = numberOfWheels;
+            return this;
+        }
+
+        public IVehicleBuilder WithDoors(int numberOfDoors)
+        {
+            DoorCount = numberOfDoors;
+            return this;
+        }
+
+        public Vehicle Construct()
+        {
+            return this;
+        }
+
+
     }
+    
 }
