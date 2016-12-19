@@ -7,7 +7,7 @@ namespace FluentBuilderDemo.FluentBuilder
         IVehicleBuilder NumberOfDoors(int numberOfDoors);
         IVehicleBuilder UseEngine(int numberOfCylinders, int engineSizeInCC);
         IVehicleBuilder OnFrame(string frame);
-        IVehicleBuilder NumberOfWheels(int numberOfWheels);
+        IVehicleBuilder WithThisManyWheels(int numberOfWheels);
         Vehicle Construct();
     }
 }

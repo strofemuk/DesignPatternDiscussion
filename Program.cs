@@ -45,7 +45,7 @@ namespace FluentBuilderDemo
                 .CreateVehicle("Sports Car")
                 .OnFrame("unibody")
                 .UseEngine(16, 9000)
-                .NumberOfWheels(4)
+                .WithThisManyWheels(4)
                 .NumberOfDoors(2)
                 .Construct();
             Console.WriteLine(car2.ToString());
@@ -55,7 +55,7 @@ namespace FluentBuilderDemo
                 .CreateVehicle("Motorcycle")
                 .OnFrame("motorcycle frame")
                 .UseEngine(numberOfCylinders: 2, engineSizeInCC: 250)
-                .NumberOfWheels(2);
+                .WithThisManyWheels(2);
             Console.WriteLine(motorcycle4.ToString());
 
             Console.ReadKey();

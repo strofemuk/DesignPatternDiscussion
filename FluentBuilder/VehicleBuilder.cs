@@ -39,7 +39,7 @@ namespace FluentBuilderDemo.FluentBuilder
             return this;
         }
 
-        public IVehicleBuilder NumberOfWheels(int numberOfWheels)
+        public IVehicleBuilder WithThisManyWheels(int numberOfWheels)
         {
             WheelCount = numberOfWheels;
             return this;
