@@ -29,9 +29,9 @@ namespace FluentBuilderDemo
 
             //object construction using the classic builder pattern.  
             //The director (shop) is used to conduct the building operation (builder) to produce an object (firstCar)
-            Builder.IVehicleBuilder builder = new Builder.CarBuilder();
+            Builder.IVehicleBuilder carBuilder = new Builder.CarBuilder();
             Builder.IBuildDirector director = new Builder.BuildDirector();
-            Builder.Vehicle car1 = director.Construct(builder);
+            Builder.Vehicle car1 = director.Construct(carBuilder);
             Console.WriteLine(car1.ToString());
 
             //let's build another one....
