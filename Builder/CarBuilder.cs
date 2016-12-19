@@ -9,7 +9,9 @@ namespace FluentBuilderDemo.Builder
     //The builder encapsulates an algorithm for each build step.
     public class CarBuilder : Vehicle.AVehicleBuilder
     {
-        public CarBuilder():base()
+        public CarBuilder() : base() { }
+
+        public override void CreateVehicle()
         {
             Vehicle.Type = "Car";
         }

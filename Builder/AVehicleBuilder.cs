@@ -13,11 +13,12 @@ namespace FluentBuilderDemo.Builder
         {
             public Vehicle Vehicle { get; protected set; }
 
-            public AVehicleBuilder()
+            protected AVehicleBuilder()
             {
                 Vehicle = new Vehicle();
             }
 
+            public abstract void CreateVehicle();
             public abstract void BuildFrame();
             public abstract void BuildEngine();
             public abstract void BuildWheels();

@@ -8,8 +8,9 @@ namespace FluentBuilderDemo.Builder
 {
     public class MotorcycleBuilder : Vehicle.AVehicleBuilder
     {
-        public MotorcycleBuilder()
-            : base()
+        public MotorcycleBuilder() : base() { }
+
+        public override void CreateVehicle()
         {
             Vehicle.Type = "Motorcycle";
         }

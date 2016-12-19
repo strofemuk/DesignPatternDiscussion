@@ -17,6 +17,7 @@ namespace FluentBuilderDemo.Builder
 
         public Vehicle Construct(IVehicleBuilder builder)
         {
+            builder.CreateVehicle();
             builder.BuildFrame();
             builder.BuildEngine();
             builder.BuildWheels();

@@ -18,6 +18,11 @@ namespace FluentBuilderDemo.FluentBuilder
         public IVehicleBuilder CreateVehicle(string type)
         {
             Type = type;
+            Frame = string.Empty;
+            CylinderCount = 0;
+            EngineSize = 0;
+            WheelCount = 0;
+            DoorCount = 0;
             return this;
         }
 
@@ -27,20 +32,20 @@ namespace FluentBuilderDemo.FluentBuilder
             return this;
         }
 
-        public IVehicleBuilder WithEngine(int numberOfCylinders, int engineSizeInCC)
+        public IVehicleBuilder UseEngine(int numberOfCylinders, int engineSizeInCC)
         {
             CylinderCount = numberOfCylinders;
             EngineSize = engineSizeInCC;
             return this;
         }
 
-        public IVehicleBuilder WithWheels(int numberOfWheels)
+        public IVehicleBuilder NumberOfWheels(int numberOfWheels)
         {
             WheelCount = numberOfWheels;
             return this;
         }
 
-        public IVehicleBuilder WithDoors(int numberOfDoors)
+        public IVehicleBuilder NumberOfDoors(int numberOfDoors)
         {
             DoorCount = numberOfDoors;
             return this;
